@@ -4,6 +4,11 @@ A free **Windows cleanup, repair and tuning suite** with a modern PyQt5 GUI: reg
 
 > Successor to "WinTools Professional". Built by a working IT technician for tidy-ups and repairs on client PCs. Free to use, free to change.
 
+## Screenshots
+
+![Dashboard with the sidebar of tools (computer name and paths blurred)](docs/screenshots/main.png)
+*Dashboard with the sidebar of tools (computer name and paths blurred)*
+
 ## Features
 
 | Page | What it does |

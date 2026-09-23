@@ -3,7 +3,7 @@
 Comment on (or open) an issue first so we don't duplicate work.
 
 ## Good first issues
-- [ ] Add screenshots to the README
+- [x] Add screenshots to the README
 - [ ] Split the 5,000-line `regwintool.py` into modules (one per page)
 - [ ] Add a dry-run mode that only reports what would be removed
 - [ ] Export scan results to CSV/JSON from every page

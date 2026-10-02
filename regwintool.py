@@ -4075,7 +4075,11 @@ class WinToolsApp(QMainWindow):
         filepath = os.path.join(self.backup_dir, filename)
         
         try:
-            with open(filepath, 'r', encoding='utf-8') as f:
+            base_real = os.path.realpath(self.backup_dir)
+            target_real = os.path.realpath(filepath)
+            if os.path.commonpath([base_real, target_real]) != base_real:
+                raise Exception('Invalid file path')
+            with open(target_real, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
             # Create viewer dialog
@@ -4444,6 +4448,8 @@ class WinToolsApp(QMainWindow):
                 self, 'Save Product Key', os.path.join(self.backup_dir, 'product_key.txt'), 'Text files (*.txt)')
             if path:
                 try:
+                    if '..' in path:
+                        raise Exception('Invalid file path')
                     with open(path, 'w', encoding='utf-8') as f:
                         f.write(f'Windows Product Key: {key}\nRetrieved: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n')
                     QMessageBox.information(self, 'Saved', f'Saved to:\n{path}')
